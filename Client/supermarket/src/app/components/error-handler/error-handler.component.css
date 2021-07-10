@@ -1,0 +1,25 @@
+.errorText {
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.closeButton {
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0px 2px 5px 1px #959297;
+  text-align: center;
+  padding: 2%;
+  margin-top: 2vh;
+  outline: none;
+  cursor: pointer;
+  width: 15%;
+  background-color: rgb(119, 148, 245);
+  font-weight: bold;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #656c73,
+    0px 0px 5px 0px rgba(220, 219, 224, 0.1);
+}

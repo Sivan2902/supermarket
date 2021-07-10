@@ -1,0 +1,123 @@
+
+<div class="mainContainer">
+
+    <div class="header">
+      <header>
+        <div class="userGreeting">Hello {{getUserName()}}</div>
+        <button class="logoutButton"
+                (click)="logoutUser()">
+                    logout
+        </button>
+        <br>
+        <h1>Super Fresh Market</h1>
+        <div class="categoriesPanel">
+          <div class="categories" *ngFor="let category of categories">
+              <button class="categoryButtons" (click)="getCategoryView(category)">{{category}}</button>
+              <span class="seperator">|</span>
+          </div>
+        </div>
+        <br>
+        <div class="searchBar">
+          <input class="searchInput"
+                 type="text"
+                 placeholder="Search" 
+                 [(ngModel)]="searchWord" 
+                 (keyup)="getUserInput($event)">
+          <mat-list class="searchItems" *ngIf="showSearch">
+            <mat-list-item  *ngFor="let searchedProduct of productsDetails | searchWordPipe : searchWord">
+              <button class="searchResult" (click)="getProductModal(searchedProduct)">
+                {{searchedProduct.productName}}
+              </button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+        </div>
+      </header>
+    </div>
+
+    <div class="cartDetails">
+        <div>
+          <p class="generalDetails">Number of available products : {{availableProductsNumber}}</p>
+          <p class="generalDetails">Number of purchases : {{numberOfPurchases}}</p>
+        </div>
+        <br><br>
+        <mat-icon class="deleteIcon"
+                  (click)="deleteCart()">
+                       delete_forever
+        </mat-icon>
+        <br><br>
+        <div class="myCart">My Cart</div>
+        <br><br>
+        <div>
+          <div class="emptyCartContainer">
+            <div class="emptyCartContent" *ngIf="cartItems.length == 0">
+              Cart is empty
+            </div>
+          </div>
+          <div *ngIf="cartItems.length">
+            <mat-card  class="cartCards"
+                      tabindex="0"
+                      *ngFor="let cartItem of cartItems">
+              <mat-icon class="deleteCartItem"
+                      (click)="deleteCartItem(cartItem)">
+                              clear
+              </mat-icon>
+              <br>
+              <img class="cartProductImage"
+                  mat-card-image src="{{cartItem.productImage}}"
+                  alt="Photo of {{cartItem.productName}}">
+              <mat-card-title>{{cartItem.productName}}</mat-card-title>
+              <span *ngIf="cartItem.kiloPrice">Price for Kilo: </span>
+              <span *ngIf="cartItem.unitPrice">Price for Unit: </span>
+              <span *ngIf="cartItem.hundredGramsPrice">Price for 100g: </span>
+              <span>{{cartItem.price}}</span>
+              <br>
+              <div>Amount: {{cartItem.amount}}</div>
+              <span>Total Price: {{cartItem.totalPrice}} NIS</span>
+            </mat-card>
+         </div>
+        </div>
+        <div>
+          <p class="cartTotalPrice"> Total Order: {{totalCartPrice}} NIS </p>
+        </div>
+        <button class="placeOrderButton" [disabled]="cartItems.length == 0" (click)="setReceipt()">Place Order</button>
+    </div>
+
+    <div class="main">
+      <div class="cardsContainer">
+      <div *ngFor="let product of productsDetails" [ngClass]="product.isNewCategory ? 'category' : 'cardItem'">
+        <div *ngIf="product.isNewCategory" id="{{product.currentCategory}}">{{product.currentCategory}}</div>
+        <mat-card tabindex="0" class="card" *ngIf="!product.isNewCategory">
+          <img mat-card-image 
+               class="cardImage"
+               src="{{product.productImage}}"
+               alt="Photo of {{product.productName}}">
+          <div class="cardContent">      
+           <mat-card-header>
+            <mat-card-title >{{product.productName}}</mat-card-title>
+              <mat-card-subtitle>
+                <span>{{product.productCategory}}</span>
+                <br><br>
+                <span *ngIf="product.kiloPrice">Price for Kilo</span>
+                <span *ngIf="product.unitPrice">Price for Unit</span>
+                <span *ngIf="product.hunderdGramsPrice">Price for 100g</span>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="price">
+                Price: {{product.productPrice}} NIS
+              </p>
+            </mat-card-content>
+            <mat-card-actions class="addProductToCart">
+              <button class="addProductButton"
+                      mat-button (click)="getProductModal(product)">
+                          Add to Cart
+              </button>
+             </mat-card-actions>
+          </div>
+          </mat-card>
+       
+      </div>
+      </div>
+    </div>
+  </div>

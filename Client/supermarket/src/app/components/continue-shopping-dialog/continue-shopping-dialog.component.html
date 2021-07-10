@@ -1,0 +1,29 @@
+<h1 class="dialogTitle" mat-dialog-title>
+    Hi!  Would you like to continue shopping <br>
+     from where you stopped last time?
+    </h1>
+
+          <div  mat-dialog-content>
+              <span class="subTitle"> 
+                  Shopping Cart Details:
+              </span>
+              <br><br>
+              <span class="title">Date: </span>
+                 {{cartItemsService.cartCreationDate}}
+              <br>
+              <span class="title">Total Cost :</span>
+                 {{cartItemsService.cartTotalPrice}} NIS
+          </div>
+
+          <div class="buttonContainer" mat-dialog-actions>
+              <button class="continueButton" 
+                mat-button mat-dialog-close
+                (click)="continueShopping()">
+                    Yes,Continue Shopping
+              </button>
+              <button class="dontContinueButton"
+                mat-button mat-dialog-close
+                (click)="getNewCart()">
+                    No,Clear Cart
+                </button>
+          </div>

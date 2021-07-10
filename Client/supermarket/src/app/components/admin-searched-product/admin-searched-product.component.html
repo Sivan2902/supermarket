@@ -1,0 +1,45 @@
+<button class="backButton"
+        mat-dialog-close>
+             Back
+</button>
+<div class="productDialog">
+    <br><br>
+    <img class="productImage"
+         mat-card-image src="{{productsService.searchedProduct.productImage}}"
+         alt="Photo of {{productsService.searchedProduct.productName}}">
+    <div class="dialogContent"
+         mat-dialog-content matPrefix>
+             <span class="productName">
+                {{productsService.searchedProduct.productName}}
+             </span>              
+             <br><br>
+              <span class="title"> Category:</span>
+                <br>
+                <span>
+                   {{productsService.searchedProduct.productCategory}}         
+                </span>              
+                <br><br>
+              <span *ngIf="productsService.searchedProduct.kiloPrice">
+                  Price for Kilo
+              </span>
+              <span *ngIf="productsService.searchedProduct.unitPrice">
+                  Price for Unit
+              </span>
+              <span *ngIf="productsService.searchedProduct.hundredGramsPrice">
+                  Price for 100g
+              </span>
+              <br><br>
+              <span class="title">Price:</span>
+              <br>
+              <span>
+                {{productsService.searchedProduct.productPrice}} NIS
+              </span>
+              <br>
+              <button class="editButton"
+                    mat-button (click)="switchEditModeOn()">
+                        Edit
+              </button>
+    </div>
+</div>
+
+

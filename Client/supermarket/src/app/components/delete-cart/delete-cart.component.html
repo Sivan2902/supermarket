@@ -1,0 +1,15 @@
+<h1>Are you sure you want to delete your cart? </h1>
+   <h3>All your cart products will be deleted</h3>
+<div class="buttonContainer">
+   <button class="deleteCartButton"
+           mat-button mat-dialog-close
+           (click)="deleteCart()">
+                  Yes
+   </button>
+
+   <button class="keepCartButton"
+           mat-button mat-dialog-close
+           (click)="keepCurrentCart()">
+                  No
+   </button>
+</div>

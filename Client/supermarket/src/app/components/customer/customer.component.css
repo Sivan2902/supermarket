@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Baskervville&family=Roboto+Slab:wght@100&display=swap");
+
+.userGreeting {
+  font-family: "Roboto Slab", serif;
+  font-size: medium;
+  font-weight: bold;
+  float: left;
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.logoutButton {
+  float: right;
+  margin-top: 1.5vh;
+  margin-right: 1vw;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  color: aliceblue;
+  background-color: rgb(10, 10, 10);
+  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Acme", sans-serif;
+  font-size: small;
+  border: none;
+  padding: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: "Acme", sans-serif;
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+.categoriesPanel {
+  text-align: center;
+}
+
+.categoryButtons {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  margin: 0.25rem;
+  background-color: transparent;
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+}
+
+.mainContainer {
+  min-height: 100%;
+  background-color: rgb(150 245 201 / 43%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.header {
+  flex-basis: 100%;
+}
+
+.cartDetails {
+  width: 25%;
+  max-width: 28%;
+  overflow: auto;
+  resize: horizontal;
+  min-width: 10%;
+  height: fit-content;
+  max-height: 100vh;
+  border-right: 1px solid rgb(187, 185, 181);
+}
+
+.generalDetails {
+  width: fit-content;
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+}
+
+.deleteIcon {
+  text-align: center;
+  float: right;
+  cursor: pointer;
+  font-size: xx-large;
+  margin-bottom: 2vh;
+  margin-right: 5%;
+}
+
+.myCart {
+  font-family: "Roboto Slab", serif;
+  font-weight: bolder;
+  font-size: x-large;
+  text-align: center;
+}
+
+.emptyCartContainer {
+  display: block;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  margin-bottom: 8vh;
+}
+
+.emptyCartContent {
+  font-family: "Roboto Slab", serif;
+  font-weight: bolder;
+  font-size: large;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.cartCards {
+  margin-bottom: 4%;
+  margin-left: 2%;
+  margin-right: 5%;
+  max-height: 20%;
+}
+
+.cartProductImage {
+  width: 25%;
+  height: 25%;
+  max-width: 30%;
+  max-height: 30%;
+  float: right;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
+.cartCards > .mat-card-title {
+  font-size: large;
+}
+
+.cartProductSubText {
+  font-size: small;
+}
+
+.cartTotalPrice {
+  text-align: center;
+  font-weight: bold;
+}
+
+.placeOrderButton {
+  width: 35%;
+  margin-left: 32.5%;
+  margin-right: 32.5%;
+  text-align: center;
+  margin-bottom: 3%;
+  border: none;
+  border-radius: 25px;
+  background-color: rgb(35, 103, 250);
+  font-weight: bold;
+  padding: 0.4em;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+}
+
+.main {
+  height: 100vh;
+  max-width: 70%;
+  overflow-y: auto;
+  margin-top: 1vh;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: fit-content;
+}
+.cardItem {
+  width: 30%;
+  max-height: 30%;
+}
+
+.addProductToCart {
+  margin-top: 0 !important;
+  height: fit-content;
+}
+
+.cardContent {
+  max-height: 50%;
+}
+
+.cardImage {
+  width: 80%;
+  height: 30% !important;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5% !important;
+}
+
+.mat-card-header {
+  flex-direction: column;
+}
+
+.mat-card-title .mat-card-title > span .mat-card-subtitle {
+  display: block;
+}
+.card {
+  text-align: center;
+  width: 70%;
+  height: 80%;
+  padding-bottom: 6vh;
+  -webkit-box-shadow: 0px 2px 5px 1px #beb9c1;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+}
+
+.addProductButton {
+  border-radius: 25px;
+  background: rgb(252, 252, 46);
+  background: radial-gradient(
+    circle,
+    rgba(252, 252, 46, 0.8899705865409937) 0%,
+    rgba(195, 197, 74, 1) 100%
+  );
+  border: none;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  padding: 0.5rem;
+}
+
+.mat-card-title .mat-card-subtitle .price {
+  text-align: center;
+}
+
+.category {
+  min-width: 100%;
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  font-size: x-large;
+  font-weight: bold;
+  margin-top: 2vh !important;
+  margin-bottom: 4vh !important;
+}
+
+.categories {
+  display: inline;
+}
+
+button {
+  cursor: pointer;
+}
+
+.deleteCartItem {
+  float: right;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.searchBar {
+  text-align: center;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+}
+
+.searchInput {
+  background-image: url(search_icon.png);
+  background-position: 0.5vw;
+  background-repeat: no-repeat;
+  background-size: 2vw;
+  font-size: medium;
+  text-indent: 3vw;
+  border-radius: 25px;
+  border: 1px solid grey;
+  width: 33%;
+  height: 2rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchItems {
+  width: 30%;
+  height: 20%;
+  margin-left: 34vw;
+  text-align: left;
+  max-height: 30%;
+  overflow-y: auto;
+  z-index: 9999;
+  position: absolute;
+  background-color: rgb(240, 235, 235);
+}
+
+.searchResult {
+  border: none;
+  margin: 0;
+}
+
+.editButton {
+  float: left;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .main {
+    width: 50%;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .cartDetails {
+    width: 43%;
+    max-width: 44%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 3%;
+  }
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    height: fit-content;
+  }
+
+  .card {
+    margin-top: 5%;
+    height: 25%;
+    width: 230%;
+    max-height: 35%;
+  }
+
+  .mat-card-header {
+    text-align: center;
+    display: block;
+    width: fit-content !important;
+    margin: auto;
+  }
+
+  @media (max-width: 455px) {
+    h1 {
+      font-size: xx-large;
+    }
+  }
+}

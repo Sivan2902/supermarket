@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Baskervville&family=Roboto+Slab:wght@100&display=swap");
+
+.mainContainer {
+  min-height: 100%;
+  background-color: rgb(150 245 201 / 43%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.userGreeting {
+  font-family: "Roboto Slab", serif;
+  font-size: medium;
+  font-weight: bold;
+  float: left;
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.logoutButton {
+  float: right;
+  margin-top: 1.5vh;
+  margin-right: 1vw;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  color: aliceblue;
+  background-color: rgb(10, 10, 10);
+  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Acme", sans-serif;
+  font-size: small;
+  border: none;
+  padding: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: "Acme", sans-serif;
+  font-size: xxx-large;
+  font-weight: bold;
+  min-width: fit-content;
+}
+
+.categoriesPanel {
+  text-align: center;
+}
+
+.categoryButtons {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  margin: 0.25rem;
+  background-color: transparent;
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+  cursor: pointer;
+}
+
+.categories {
+  display: inline;
+}
+
+.header {
+  flex-basis: 100%;
+}
+
+.searchBar {
+  text-align: center;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+}
+
+.searchInput {
+  background-image: url(search_icon.png);
+  background-position: 0.5vw;
+  background-repeat: no-repeat;
+  background-size: 2vw;
+  font-size: medium;
+  text-indent: 3vw;
+  border-radius: 25px;
+  border: 1px solid grey;
+  width: 33%;
+  height: 2rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchItems {
+  width: 30%;
+  height: 20%;
+  margin-left: 34vw;
+  text-align: left;
+  max-height: 30%;
+  overflow-y: auto;
+  z-index: 9999;
+  position: absolute;
+  background-color: rgb(240, 235, 235);
+}
+
+.searchResult {
+  border: none;
+  margin: 0;
+}
+
+.editOrAddProductSection {
+  width: 25%;
+  max-width: 28%;
+  overflow: auto;
+  resize: horizontal;
+  min-width: 10%;
+  height: fit-content;
+  max-height: 100vh;
+  border-right: 1px solid rgb(187, 185, 181);
+}
+
+.generalDetails {
+  width: fit-content;
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+}
+
+.buttonContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 3.5vh;
+  margin-bottom: 2.5vh;
+}
+
+.buttonContainer > button {
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgb(119, 148, 245);
+  font-weight: bold;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #656c73,
+    0px 0px 5px 0px rgba(220, 219, 224, 0.1);
+  cursor: pointer;
+}
+
+.inputContainer {
+  width: 100%;
+}
+.inputField {
+  margin: auto;
+}
+.noProductsInViewContainer {
+  display: block;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  margin-bottom: 8vh;
+}
+
+.noProductsInViewContent {
+  font-family: "Roboto Slab", serif;
+  font-weight: bolder;
+  font-size: large;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.editTitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.unitLabel {
+  font-size: small;
+}
+
+.mat-form-field,
+.editedProductImage {
+  width: 80%;
+  margin-right: 20%;
+}
+
+.replaceButton {
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5rem;
+  margin-top: 1.5vh;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  background: rgb(65, 247, 186);
+  background: linear-gradient(
+    90deg,
+    rgba(65, 247, 186, 1) 0%,
+    rgba(139, 249, 201, 1) 50%,
+    rgba(65, 247, 186, 1) 100%
+  );
+}
+
+.fileInput {
+  border-radius: 25px;
+  text-align: left;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  outline: none;
+  border: 0.5px solid #656c73;
+}
+
+.uploadImageButton {
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5rem;
+  margin-top: 1.5vh;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  background: rgb(65, 247, 186);
+  background: linear-gradient(
+    90deg,
+    rgba(65, 247, 186, 1) 0%,
+    rgba(139, 249, 201, 1) 50%,
+    rgba(65, 247, 186, 1) 100%
+  );
+}
+
+.applyChangeButton {
+  border-radius: 25px;
+  background: rgb(252, 252, 46);
+  background: radial-gradient(
+    circle,
+    rgba(252, 252, 46, 0.8899705865409937) 0%,
+    rgba(195, 197, 74, 1) 100%
+  );
+  border: none;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  padding: 0.5rem;
+  font-weight: bold;
+  margin-bottom: 2vh;
+}
+
+.main {
+  height: 100vh;
+  max-width: 70%;
+  overflow-y: auto;
+  margin-top: 1vh;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: fit-content;
+}
+.category {
+  min-width: 100%;
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  font-size: x-large;
+  font-weight: bold;
+  margin-top: 2vh !important;
+  margin-bottom: 4vh !important;
+}
+
+.card {
+  text-align: center;
+  width: 70%;
+  height: 80%;
+  padding-bottom: 6vh;
+  -webkit-box-shadow: 0px 2px 5px 1px #beb9c1;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+}
+
+.cardItem {
+  width: 30%;
+  max-height: 30%;
+}
+
+.cardContent {
+  max-height: 50%;
+}
+
+.cardImage {
+  width: 80%;
+  height: 30% !important;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5% !important;
+}
+
+.mat-card-header {
+  flex-direction: column;
+}
+
+.mat-card-title .mat-card-title > span .mat-card-subtitle {
+  display: block;
+}
+
+.editbuttonContainer {
+  margin-top: 0 !important;
+  height: fit-content;
+}
+
+.editProductButton {
+  width: fit-content;
+  font-weight: bold;
+  border-radius: 25px;
+  background: rgb(252, 252, 46);
+  background: radial-gradient(
+    circle,
+    rgba(252, 252, 46, 0.8899705865409937) 0%,
+    rgba(195, 197, 74, 1) 100%
+  );
+  border: none;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  cursor: pointer;
+}
+
+.mat-card-title .mat-card-subtitle .price {
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .editOrAddProductSection {
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .main {
+    width: 64%;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .card {
+    margin-top: 5%;
+    height: 25%;
+    width: 230%;
+    max-height: 35%;
+  }
+
+  .mat-card-header {
+    text-align: center;
+    display: block;
+    width: fit-content !important;
+    margin: auto;
+  }
+
+  @media (max-width: 455px) {
+    h1 {
+      font-size: xx-large;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<button  class="backButton" 
+        (click)="goBack()">
+            Back
+</button>
+<br><br>
+<h1 class="title" mat-dialog-title>
+    Add Product Details:
+</h1>
+<br>
+<div class="inputContainer" mat-dialog-content>
+    <form #addProductForm="ngForm" [formGroup] ="adminAddProductForm">
+        <p class="subtitle">Product Fields: </p>
+        <br>
+        <mat-form-field appearance="fill" class="inputField">
+            <mat-label>Product name:</mat-label>
+                <input matInput
+                    [(ngModel)]="productName"
+                    name="productName"
+                    [formControl]="validName"
+                    required
+                    maxlength="25">
+                <mat-error *ngIf="validName.invalid">
+                    {{getProductNameErrorMessage()}}
+                </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="inputField">
+            <mat-label>Choose Category:</mat-label>
+                <mat-select 
+                    [(ngModel)]="productCategory"
+                    name="productCategory"
+                    [formControl]="validCategory"
+                    required>
+                        <mat-option 
+                            *ngFor="let category of categories"
+                             value="{{category}}">
+                                {{category}}
+                        </mat-option>
+                </mat-select>
+                    <mat-error *ngIf="validCategory.invalid ||
+                                      validCategory.touched">
+                                        This Field is required
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="inputField">
+                    <mat-label>Product price:</mat-label>
+                        <input matInput
+                               type="number"
+                               placeholder="Enter product price"
+                               [(ngModel)]="productPrice"
+                               min="1"
+                               name="price"
+                               [formControl]="validPrice"
+                               required
+                               maxlength="25">
+                        <mat-error *ngIf="validPrice.touched ||
+                                          validPrice.invalid">
+                                {{getProductPriceErrorMessage()}}
+                        </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="inputField">
+                    <mat-label>Choose product price unit :</mat-label>
+                    <mat-select 
+                        [(ngModel)]="priceUnit"
+                        name="productPriceUnit"
+                        [formControl]="validPriceUnit">
+                        <mat-option *ngFor="let unitPrice of unitOptions"
+                                     value="{{unitPrice}}">
+                                        {{unitPrice}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="validPriceUnit.touched">
+                        This field is required
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <div>
+                   <label>Insert product Image:</label>
+                   <br>
+                   <input class="fileInput"
+                          type="file"
+                          (input)="getChosenImage($event)"
+                          name="productImage"
+                          [formControl] ="validImage"
+                          required>
+                </div>
+                <br>
+                <div class="buttonContainer">
+                    <button class="addProductButton"
+                            (click)="addingProductProcess()" 
+                            [disabled] = "addProductForm.form.invalid">
+                                Add Product
+                    </button>
+                </div>
+    </form>
+</div>

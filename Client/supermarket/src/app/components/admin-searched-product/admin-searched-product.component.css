@@ -1,0 +1,51 @@
+.backButton {
+  float: right;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgb(119, 148, 245);
+  font-weight: bold;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #656c73,
+    0px 0px 5px 0px rgba(220, 219, 224, 0.1);
+  cursor: pointer;
+}
+
+.productDialog {
+  display: block;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.productImage {
+  width: 50%;
+  height: 30%;
+  margin: 3%;
+}
+
+.productName {
+  font-size: large;
+  font-weight: bold;
+}
+.title {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.editButton {
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+  margin-top: 2vh;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(66, 202, 125);
+}

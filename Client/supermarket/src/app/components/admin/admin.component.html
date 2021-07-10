@@ -1,0 +1,182 @@
+
+<div class="mainContainer">
+    <div class="header">
+      <header>
+        <div class="userGreeting">Hello {{getUserName()}}</div>
+        <button class="logoutButton"
+            (click)="logoutUser()">
+                logout
+        </button>
+        <br>
+        <h1>Super Fresh Market</h1>
+        <div class="categoriesPanel">
+          <div class="categories" *ngFor="let category of categories">
+              <button class="categoryButtons" 
+                      (click)="getCategoryView(category)">
+                        {{category}}
+              </button>
+              <span class="seperator">|</span>
+          </div>
+        </div>
+        <br>
+        <div class="searchBar">
+          <input class="searchInput"
+                type="text"
+                placeholder="Search" 
+                [(ngModel)]="searchWord" 
+                (keyup)="getUserInput($event)">
+          <mat-list class="searchItems" *ngIf="showSearch">
+            <mat-list-item  *ngFor="let searchedProduct of productsDetails | searchWordPipe : searchWord">
+              <button class="searchResult" (click)="getSearchedProductModal(searchedProduct)">
+                {{searchedProduct.productName}}
+              </button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+        </div>
+      </header>
+    </div>
+
+    <div class="editOrAddProductSection">
+        <div>
+          <p class="generalDetails">Number of available products : {{availableProductsNumber}}</p>
+          <p class="generalDetails">Number of purchases : {{numberOfPurchases}}</p>
+        </div>
+        <div class="buttonContainer">
+            <button (click)="addProduct()">
+                  Add Product
+            </button>
+        </div>
+        <br>
+        <div class="noProductsInViewContainer" 
+            *ngIf="showNoContent">
+              <div class="noProductsInViewContent" >
+                  <br><br>
+                        No Products to edit/add
+              </div>
+        </div>
+        <div class="editSection" *ngIf="showEditSection">
+            <form #editForm="ngForm" [formGroup]="adminEditForm">
+                <p class="editTitle">Edit product fields: </p>
+                <br>
+                <div class="inputContainer">
+                  <mat-form-field appearance="fill" class="inputField">
+                      <mat-label>Product name:</mat-label>
+                          <input matInput
+                          value ="{{productName}}"
+                          [(ngModel)]="productName"
+                          name="productName"
+                          [formControl]="validName"
+                          required
+                          maxlength="25">
+                      <mat-error *ngIf="validName.invalid">This field is required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="inputField">
+                      <mat-label>Choose Category:</mat-label>
+                      <mat-select 
+                          [(ngModel)]="productCategory"
+                          name="productCategory"
+                          [formControl]="validCategory">
+                          <mat-option *ngFor="let category of categories" value="{{category}}">{{category}}</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="validCategory.invalid">This field is required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="inputField">
+                      <mat-label>Product price:</mat-label>
+                          <input matInput
+                          type="number"
+                          placeholder="{{price}}"
+                          value ="{{price}}"
+                          [(ngModel)]="price"
+                          min="1"
+                          name="price"
+                          [formControl]="validPrice"
+                          required
+                          maxlength="25">
+                      <mat-error *ngIf="validPrice.invalid && validPrice.touched">This field is required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="inputField">
+                      <mat-label class="unitLabel">Choose product price unit :</mat-label>
+                      <mat-select 
+                          name="productPriceUnit"
+                          [formControl]="validPriceUnit">
+                          <mat-option *ngFor="let unitPrice of unitOptions" value="{{unitPrice}}">{{unitPrice}}</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="validPriceUnit.invalid || validPriceUnit.touched">This field is required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <div>
+                    <br>
+                    <span>Current product Image:</span>
+                    <br><br>
+                    <img class="editedProductImage" [src]="productImage"/>
+                    <button class="replaceButton"
+                            (click)="getUploadImagePanel()">
+                                Replace Image
+                    </button>
+                    <br><br>
+                    <div *ngIf="showUploadPanel">
+                      <span>Upload Image: </span>
+                      <br><br>
+                      <input class="fileInput"
+                            type="file"
+                            (input)="getChosenFile($event)">
+                      <br><br>
+                      <button class="uploadImageButton"
+                              (click)="uploadImage()"
+                              [disabled]="disableImageLoading">
+                                  Upload
+                      </button>
+                    </div>
+                  </div>
+                  <br>
+                  <button class="applyChangeButton"
+                          (click)="sendEditedProduct()" 
+                          [disabled]="editForm.invalid">
+                              Apply Changes
+                  </button>
+                </div>
+            </form>
+        </div>
+      </div>
+    <main class="main">
+      <div class="cardsContainer">
+        <div *ngFor="let product of productsDetails" [ngClass]="product.isNewCategory ? 'category' : 'cardItem'">
+          <div *ngIf="product.isNewCategory" id="{{product.currentCategory}}">{{product.currentCategory}}</div>
+          <mat-card tabindex="0" class="card" *ngIf="!product.isNewCategory">
+            <img mat-card-image 
+                 class="cardImage"
+                 src="{{product.productImage}}"
+                 alt="Photo of {{product.productName}}">
+            <div class="cardContent">      
+              <mat-card-header>
+                <mat-card-title >{{product.productName}}</mat-card-title>
+                  <mat-card-subtitle>
+                    <span>{{product.productCategory}}</span>
+                    <br><br>
+                    <span *ngIf="product.kiloPrice">Price for Kilo</span>
+                    <span *ngIf="product.unitPrice">Price for Unit</span>
+                    <span *ngIf="product.hunderdGramsPrice">Price for 100g</span>
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <p class="price">
+                    Price: {{product.productPrice}} NIS
+                  </p>
+                </mat-card-content>
+                  <mat-card-actions class="editbuttonContainer">
+                    <button class="editProductButton"
+                            mat-button
+                            (click)="editProduct(product)">
+                                  Edit
+                    </button>
+                  </mat-card-actions>
+            </div>
+          </mat-card>
+        </div>
+       </div>
+    </main>
+  </div>

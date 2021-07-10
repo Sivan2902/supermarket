@@ -1,0 +1,60 @@
+.backButton {
+  float: right;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgb(119, 148, 245);
+  font-weight: bold;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #656c73,
+    0px 0px 5px 0px rgba(220, 219, 224, 0.1);
+  cursor: pointer;
+}
+
+.title {
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+
+.subtitle {
+  font-weight: bold;
+  font-size: medium;
+  text-align: center;
+}
+
+.fileInput {
+  border-radius: 25px;
+  text-align: left;
+  width: 70%;
+  margin: auto;
+  margin-top: 1.5vh;
+  outline: none;
+  border: 0.5px solid #656c73;
+}
+
+.buttonContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+}
+
+.addProductButton {
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgb(119, 148, 245);
+  font-weight: bold;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #656c73,
+    0px 0px 5px 0px rgba(220, 219, 224, 0.1);
+  cursor: pointer;
+  margin-bottom: 1vh;
+}
+
+.inputContainer {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}

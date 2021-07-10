@@ -1,0 +1,42 @@
+h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+h4,
+p {
+  font-weight: bold;
+  margin-left: 1vw;
+}
+
+#downloadLink,
+.downloadButton,
+.closeButton {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  width: fit-content;
+  border-radius: 25px;
+  background: rgb(46, 252, 249);
+  background: radial-gradient(
+    circle,
+    rgba(46, 252, 249, 0.8899705865409937) 0%,
+    rgba(74, 139, 197, 1) 100%
+  );
+  border: none;
+  box-shadow: 0px 2px 5px 1px #beb9c1;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.closeButton {
+  width: 20%;
+  margin-right: 3vw;
+}
+
+.buttons {
+  display: block;
+  text-align: center;
+  margin-bottom: 1.5vh;
+}
